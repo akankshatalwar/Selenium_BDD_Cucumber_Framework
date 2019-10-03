@@ -1,0 +1,76 @@
+package pages;
+
+import baseClass.TestBase;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class SignUpPage extends TestBase {
+
+
+    @FindBy(id="FirstName")
+    WebElement firstName;
+
+    @FindBy(id="MiddleName")
+    WebElement middleName;
+
+    @FindBy(id="LastName")
+    WebElement lastName;
+
+    @FindBy(id="UserName")
+    WebElement userName;
+
+    @FindBy(id="ConfirmEmail")
+    WebElement confirmEmail;
+
+    @FindBy(id="Password")
+    WebElement password;
+
+    @FindBy(id="ConfirmPassword")
+    WebElement confirmPassword;
+
+
+    @FindBy(css="[class='type-checkbox'] >input")
+    WebElement privacyPolicyCheckBox;
+
+    @FindBy(css="[class='type-checkbox'] >input")
+    WebElement termConditionCheckBox;
+
+    @FindBy(id="registerButton")
+    WebElement registerButtonCTA;
+
+
+
+public SignUpPage(){
+
+    PageFactory.initElements(driver, this);
+
+}
+
+    String first_name= prop.getProperty("first_name");
+    String middle_name= prop.getProperty("middle_name");
+    String last_name= prop.getProperty("last_name");
+
+public void verifyFirstName(){
+    firstName.isDisplayed();
+    firstName.clear();
+    firstName.sendKeys(first_name);
+
+}
+
+    public void verifyMiddleName(){
+        middleName.isDisplayed();
+        middleName.clear();
+        middleName.sendKeys(middle_name);
+
+    }
+
+    public void verifyLastName(){
+        lastName.isDisplayed();
+        lastName.clear();
+        lastName.sendKeys(last_name);
+
+    }
+
+
+}
