@@ -1,0 +1,32 @@
+package pages;
+
+import baseClass.TestBase;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage extends TestBase {
+
+@FindBy(xpath="//*[contains(@href,'/registration')]  [@class='primary-button']")
+    WebElement signUpButton;
+
+@FindBy(xpath=".//*[@class='carousel-inner']")
+WebElement imgOnHomePage;
+
+
+public HomePage(){
+    PageFactory.initElements(driver, this);
+}
+
+public void verifyImgOnHomePage(){
+
+    imgOnHomePage.isDisplayed();
+    }
+
+
+public void clickSignUpButton(){
+
+    signUpButton.click();
+}
+
+}
