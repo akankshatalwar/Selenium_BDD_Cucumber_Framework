@@ -1,0 +1,68 @@
+package albertaCannabis.stepdefinations;
+
+import baseClass.TestBase;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
+import pages.HomePage;
+import pages.SignUpPage;
+
+public class AlbertaCannabisSteps extends TestBase {
+
+    public static HomePage homePage;
+    public static SignUpPage signUpPage;
+
+    WebDriver driver;
+
+    public AlbertaCannabisSteps(){
+
+        super();
+    }
+
+    @Given("^I should be on the website$")
+       public void IShouldBeOnTheWebsite(){
+
+        TestBase.Initialization();
+        homePage.verifyImgOnHomePage();
+
+    }
+
+    @When("^I should click on the sign up link$")
+    public void IShouldClickonSignUpButton(){
+        homePage.clickSignUpButton();
+
+    }
+
+    @Then("^I should see the page loaded$")
+    public void IShouldSeePageLoaded(){
+        homePage.clickSignUpButton();
+
+    }
+
+    @And("^I should see that header should be displayed$")
+    public void IShouldSeeHeaderDisplayed(){
+        signUpPage.verifyFirstName();
+
+    }
+
+    @And("^I should enter the first name$")
+    public void IShouldEnterFirstName(){
+        signUpPage.verifyFirstName();
+
+    }
+
+    @And("^I should enter the middle name$")
+    public void IShouldEnterMiddleName(){
+        signUpPage.verifyMiddleName();
+
+    }
+
+    @And("^I should enter the last name$")
+    public void IShouldEnterLastName(){
+        signUpPage.verifyLastName();
+
+
+    }
+}
